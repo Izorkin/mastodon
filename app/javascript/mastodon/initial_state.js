@@ -27,5 +27,6 @@ export const showTrends = getMeta('trends');
 export const title = getMeta('title');
 export const cropImages = getMeta('crop_images');
 export const disableSwiping = getMeta('disable_swiping');
+export const max_toot_chars = getMeta('max_toot_chars');
 
 export default initialState;

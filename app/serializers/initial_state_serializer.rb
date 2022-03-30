@@ -2,7 +2,8 @@
 
 class InitialStateSerializer < ActiveModel::Serializer
   attributes :meta, :compose, :accounts,
-             :media_attachments, :settings
+             :media_attachments, :settings,
+             :max_toot_chars
 
   has_one :push_subscription, serializer: REST::WebPushSubscriptionSerializer
 
@@ -23,6 +24,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       mascot: instance_presenter.mascot&.file&.url,
       profile_directory: Setting.profile_directory,
       trends: Setting.trends,
+      max_toot_chars: StatusLengthValidator::MAX_CHARS,
     }
 
     if object.current_account
@@ -75,6 +77,10 @@ class InitialStateSerializer < ActiveModel::Serializer
 
   def media_attachments
     { accept_content_types: MediaAttachment.supported_file_extensions + MediaAttachment.supported_mime_types }
+  end
+
+  def max_toot_chars
+    StatusLengthValidator::MAX_CHARS
   end
 
   private
