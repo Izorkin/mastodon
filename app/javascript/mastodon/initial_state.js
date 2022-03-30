@@ -123,6 +123,7 @@ export const criticalUpdatesPending = initialState?.critical_updates_pending;
 export const statusPageUrl = getMeta('status_page_url');
 export const sso_redirect = getMeta('sso_redirect');
 export const termsOfServiceEnabled = getMeta('terms_of_service_enabled');
+export const maxChars = (initialState && initialState.max_status_characters) || 500;
 
 const displayNames = Intl.DisplayNames && new Intl.DisplayNames(getMeta('locale'), {
   type: 'language',

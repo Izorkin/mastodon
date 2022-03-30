@@ -22,6 +22,7 @@ import PrivacyDropdownContainer from '../containers/privacy_dropdown_container';
 import SpoilerButtonContainer from '../containers/spoiler_button_container';
 import UploadButtonContainer from '../containers/upload_button_container';
 import { countableText } from '../util/counter';
+import { maxChars } from '../../../initial_state';
 
 import { CharacterCounter } from './character_counter';
 import { EditIndicator } from './edit_indicator';
